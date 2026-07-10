@@ -491,6 +491,6 @@
 @media (max-width: 900px) {
   .badge-2 { right: 4px; }
   .badge-1 { left: 4px; }
-  .contact-strip { position: relative; left: auto; bottom: auto; transform: none; margin: 0.8rem auto 0; width: min(100% - 1.5rem, 920px); }
+  .contact-strip { position: relative; left: auto; bottom: auto; transform: none; margin: 0.25rem 0 0; width: 100%; }
   #hero { padding-bottom: 2rem; }
 }

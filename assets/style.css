@@ -350,7 +350,63 @@ section { scroll-margin-top: calc(var(--nav-h) + 12px); }
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 3;
 }
+.hero-cta-row-secondary {
+  margin-bottom: 1.1rem;
+}
+.hero-cta-row-secondary .btn {
+  background: rgba(255,255,255,0.72);
+  color: var(--ink);
+  border: 1px solid rgba(20,26,40,0.12);
+  box-shadow: none;
+}
+.hero-cta-row-secondary .btn:hover {
+  background: #fff;
+}
+/* contact strip: in-flow under CTAs, never absolute over buttons */
+.contact-strip {
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  width: 100%;
+  max-width: 36rem;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-start;
+  z-index: 2;
+}
+.contact-strip a {
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(20,26,40,0.1);
+  color: var(--ink-soft);
+  backdrop-filter: blur(8px);
+  transition: color 0.2s, transform 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.contact-strip a:hover {
+  color: var(--ink);
+  background: #fff;
+  transform: translateY(-1px);
+}
+#hero {
+  padding-bottom: 3.5rem;
+}
+.scroll-cue {
+  z-index: 1;
+}
+
 
 .hero-stage {
   position: relative;

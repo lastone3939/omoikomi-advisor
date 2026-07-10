@@ -252,16 +252,11 @@
 }
 
 .contact-strip {
-  position: absolute;
-  left: 50%;
-  bottom: 4.2rem;
-  transform: translateX(-50%);
-  z-index: 4;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  justify-content: center;
-  width: min(920px, calc(100% - 1.5rem));
+  position: relative;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  z-index: 2;
 }
 .contact-strip a {
   text-decoration: none;
@@ -325,7 +320,7 @@
 }
 @media (max-width: 520px) {
   .photo-wall { grid-template-columns: repeat(2, 1fr); }
-  .contact-strip { bottom: 5.2rem; }
+  .contact-strip { position: relative; bottom: auto; left: auto; transform: none; margin-top: 0.25rem; }
 }
 
 
@@ -762,7 +757,8 @@
   .story-photos-pro { grid-template-columns: 1fr 1fr !important; }
 }
 @media (max-width: 420px) {
-  .hero-cta-row .btn { min-width: 100%; }
+  .hero-cta-row .btn { min-width: calc(50% - 0.4rem); }
+  .hero-cta-row-secondary .btn { min-width: calc(50% - 0.4rem); }
   .contact-strip a { font-size: 0.72rem; padding: 0.4rem 0.55rem; }
   .counter-num { font-size: clamp(1.8rem, 8vw, 2.4rem); }
   .pillar-media { max-height: 180px; }

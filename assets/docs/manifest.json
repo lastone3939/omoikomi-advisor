@@ -1,0 +1,83 @@
+[
+  {
+    "file": "AI補助金.pdf",
+    "slug": "AI補助金",
+    "p1": "AI補助金_p1.jpg",
+    "p2": "AI補助金_p2.jpg",
+    "pages": 23,
+    "w": 1600,
+    "h": 840
+  },
+  {
+    "file": "LasoneData.pdf",
+    "slug": "LasoneData",
+    "p1": "LasoneData_p1.jpg",
+    "p2": "LasoneData_p2.jpg",
+    "pages": 18,
+    "w": 1600,
+    "h": 901
+  },
+  {
+    "file": "OpenClaw_HermesAgent_構築.pdf",
+    "slug": "OpenClaw_HermesAgent_構築",
+    "p1": "OpenClaw_HermesAgent_構築_p1.jpg",
+    "p2": "OpenClaw_HermesAgent_構築_p2.jpg",
+    "pages": 15,
+    "w": 1600,
+    "h": 901
+  },
+  {
+    "file": "OpenClaw_活用事例詳細版.pdf",
+    "slug": "OpenClaw_活用事例詳細版",
+    "p1": "OpenClaw_活用事例詳細版_p1.jpg",
+    "p2": "OpenClaw_活用事例詳細版_p2.jpg",
+    "pages": 19,
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "file": "Orb設置概要資料.pdf",
+    "slug": "Orb設置概要資料",
+    "p1": "Orb設置概要資料_p1.jpg",
+    "p2": "Orb設置概要資料_p2.jpg",
+    "pages": 14,
+    "w": 1440,
+    "h": 810
+  },
+  {
+    "file": "TELEMO営業資料VOL7.pdf",
+    "slug": "TELEMO営業資料VOL7",
+    "p1": "TELEMO営業資料VOL7_p1.jpg",
+    "p2": "TELEMO営業資料VOL7_p2.jpg",
+    "pages": 15,
+    "w": 1600,
+    "h": 901
+  },
+  {
+    "file": "インスタ広告_採用提案書.pdf",
+    "slug": "インスタ広告_採用提案書",
+    "p1": "インスタ広告_採用提案書_p1.jpg",
+    "p2": "インスタ広告_採用提案書_p2.jpg",
+    "pages": 72,
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "file": "ベンチマーク広告_提案書.pdf",
+    "slug": "ベンチマーク広告_提案書",
+    "p1": "ベンチマーク広告_提案書_p1.jpg",
+    "p2": "ベンチマーク広告_提案書_p2.jpg",
+    "pages": 38,
+    "w": 1600,
+    "h": 900
+  },
+  {
+    "file": "ベンチマーク採用広告_提案書.pdf",
+    "slug": "ベンチマーク採用広告_提案書",
+    "p1": "ベンチマーク採用広告_提案書_p1.jpg",
+    "p2": "ベンチマーク採用広告_提案書_p2.jpg",
+    "pages": 32,
+    "w": 1600,
+    "h": 900
+  }
+]

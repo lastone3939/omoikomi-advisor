@@ -1,0 +1,407 @@
+/* お気持ち顧問 × Page Agent — 日本語コンパクトUI（サイトデザインに同調） */
+
+/* 公式 PageAgent パネル（CSS Modules: _wrapper_1tu05_*）を完全に隠す */
+[class*="_wrapper_1tu05"],
+[class*="_inputSectionWrapper_1tu05"],
+[class*="_historySectionWrapper_1tu05"],
+.page-agent-panel,
+[class*="page-agent"][class*="panel"],
+div[data-page-agent-panel] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transform: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 全画面マスクは出さない / 出ても薄く */
+[class*="_background_1tu05"],
+[class*="SimulatorMask"],
+[class*="_mask"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ===== 自前ウィジェット ===== */
+#omo-ai {
+  --omo-ai-z: 140;
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1.1rem, env(safe-area-inset-bottom));
+  z-index: var(--omo-ai-z);
+  font-family: var(--font-sans, "Hiragino Kaku Gothic ProN", system-ui, sans-serif);
+  color: var(--ink, #141A28);
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+#omo-ai * {
+  box-sizing: border-box;
+}
+
+/* モバイル下部CTAの上に逃がす */
+@media (max-width: 860px) {
+  #omo-ai {
+    bottom: calc(5.4rem + env(safe-area-inset-bottom));
+    right: 0.75rem;
+  }
+}
+
+/* 起動ボタン（閉じた状態） */
+.omo-ai-fab {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.72rem 1rem 0.72rem 0.85rem;
+  border: 1px solid rgba(20, 26, 40, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink, #141A28);
+  box-shadow:
+    0 10px 28px -14px rgba(20, 26, 40, 0.45),
+    0 0 0 1px rgba(232, 89, 12, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),
+    box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.omo-ai-fab:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 32px -12px rgba(20, 26, 40, 0.5),
+    0 0 0 1px rgba(232, 89, 12, 0.16);
+  background: #fff;
+}
+
+.omo-ai-fab:active {
+  transform: translateY(0);
+}
+
+.omo-ai-fab:focus-visible {
+  outline: 2px solid var(--accent, #E8590C);
+  outline-offset: 3px;
+}
+
+.omo-ai-fab-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent, #E8590C);
+  box-shadow: 0 0 0 3px var(--accent-soft, rgba(232, 89, 12, 0.18));
+  flex-shrink: 0;
+}
+
+.omo-ai-fab.is-busy .omo-ai-fab-dot {
+  animation: omo-ai-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes omo-ai-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.65; }
+}
+
+/* 展開パネル */
+.omo-ai-panel {
+  pointer-events: auto;
+  display: none;
+  width: min(22.5rem, calc(100vw - 1.5rem));
+  max-height: min(70vh, 32rem);
+  flex-direction: column;
+  border-radius: 18px;
+  background: rgba(250, 246, 238, 0.96);
+  border: 1px solid rgba(20, 26, 40, 0.08);
+  box-shadow:
+    0 28px 56px -24px rgba(20, 26, 40, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+#omo-ai.is-open .omo-ai-panel {
+  display: flex;
+}
+
+#omo-ai.is-open .omo-ai-fab {
+  display: none;
+}
+
+.omo-ai-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 0.95rem 0.55rem;
+  border-bottom: 1px solid rgba(20, 26, 40, 0.06);
+}
+
+.omo-ai-title-wrap {
+  min-width: 0;
+}
+
+.omo-ai-title {
+  margin: 0;
+  font-family: var(--font-serif, "Hiragino Mincho ProN", serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink, #141A28);
+}
+
+.omo-ai-sub {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  color: var(--ink-faint, rgba(20, 26, 40, 0.45));
+}
+
+.omo-ai-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.omo-ai-icon-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft, rgba(20, 26, 40, 0.68));
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.omo-ai-icon-btn:hover {
+  background: rgba(20, 26, 40, 0.06);
+  color: var(--ink, #141A28);
+}
+
+.omo-ai-icon-btn:focus-visible {
+  outline: 2px solid var(--accent, #E8590C);
+  outline-offset: 1px;
+}
+
+.omo-ai-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem 0.15rem;
+  font-size: 0.75rem;
+  color: var(--ink-soft, rgba(20, 26, 40, 0.68));
+  min-height: 1.4rem;
+}
+
+.omo-ai-status-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #8a919e;
+  flex-shrink: 0;
+}
+
+.omo-ai-status[data-state="running"] .omo-ai-status-dot {
+  background: var(--accent, #E8590C);
+  animation: omo-ai-pulse 1.1s ease-in-out infinite;
+}
+
+.omo-ai-status[data-state="done"] .omo-ai-status-dot {
+  background: var(--green, #06C755);
+}
+
+.omo-ai-status[data-state="error"] .omo-ai-status-dot {
+  background: #c0392b;
+}
+
+/* クイック操作 */
+.omo-ai-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.55rem 0.85rem 0.35rem;
+}
+
+.omo-ai-chip {
+  appearance: none;
+  border: 1px solid rgba(20, 26, 40, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink, #141A28);
+  border-radius: 999px;
+  padding: 0.38rem 0.7rem;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.omo-ai-chip:hover:not(:disabled) {
+  background: var(--accent-soft, rgba(232, 89, 12, 0.12));
+  border-color: rgba(232, 89, 12, 0.35);
+  color: var(--accent, #E8590C);
+}
+
+.omo-ai-chip:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ログ（控えめ） */
+.omo-ai-log {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 9.5rem;
+  overflow-y: auto;
+  margin: 0.25rem 0.75rem 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(20, 26, 40, 0.05);
+  font-size: 0.74rem;
+  color: var(--ink-soft, rgba(20, 26, 40, 0.68));
+  display: none;
+}
+
+.omo-ai-log.is-visible {
+  display: block;
+}
+
+.omo-ai-log-line {
+  margin: 0 0 0.35rem;
+  word-break: break-word;
+}
+
+.omo-ai-log-line:last-child {
+  margin-bottom: 0;
+}
+
+.omo-ai-log-line.is-system {
+  color: var(--ink-faint, rgba(20, 26, 40, 0.45));
+}
+
+.omo-ai-log-line.is-user {
+  color: var(--ink, #141A28);
+  font-weight: 600;
+}
+
+.omo-ai-log-line.is-ok {
+  color: var(--green-deep, #05a648);
+}
+
+.omo-ai-log-line.is-err {
+  color: #a93226;
+}
+
+/* 入力 */
+.omo-ai-form {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.55rem 0.75rem 0.85rem;
+  align-items: flex-end;
+}
+
+.omo-ai-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  resize: none;
+  border: 1px solid rgba(20, 26, 40, 0.1);
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  background: #fff;
+  color: var(--ink, #141A28);
+  max-height: 5.5rem;
+  min-height: 2.55rem;
+  field-sizing: content;
+}
+
+.omo-ai-input::placeholder {
+  color: var(--ink-faint, rgba(20, 26, 40, 0.38));
+}
+
+.omo-ai-input:focus {
+  outline: none;
+  border-color: rgba(232, 89, 12, 0.45);
+  box-shadow: 0 0 0 3px var(--accent-soft, rgba(232, 89, 12, 0.12));
+}
+
+.omo-ai-input:disabled {
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--ink-soft, rgba(20, 26, 40, 0.68));
+}
+
+.omo-ai-send,
+.omo-ai-stop {
+  flex: 0 0 auto;
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 0.7rem 0.95rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+}
+
+.omo-ai-send {
+  background: var(--accent, #E8590C);
+  color: #fff;
+}
+
+.omo-ai-send:hover:not(:disabled) {
+  background: var(--accent-hot, #FF6A1A);
+}
+
+.omo-ai-send:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.omo-ai-stop {
+  display: none;
+  background: var(--ink, #141A28);
+  color: #fff;
+}
+
+#omo-ai.is-running .omo-ai-send {
+  display: none;
+}
+
+#omo-ai.is-running .omo-ai-stop {
+  display: inline-flex;
+}
+
+.omo-ai-foot {
+  padding: 0 0.95rem 0.75rem;
+  font-size: 0.68rem;
+  color: var(--ink-faint, rgba(20, 26, 40, 0.4));
+}
+
+/* アクセシビリティ */
+@media (prefers-reduced-motion: reduce) {
+  .omo-ai-fab,
+  .omo-ai-fab.is-busy .omo-ai-fab-dot,
+  .omo-ai-status[data-state="running"] .omo-ai-status-dot {
+    animation: none !important;
+    transition: none !important;
+  }
+}

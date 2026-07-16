@@ -1,0 +1,46 @@
+# ラスワンのお気持ち顧問
+
+> AIコール開発・AI営業リスト戦略の伴走顧問。株式会社ギブファースト 代表・清水望。
+
+## 概要
+
+- 正式名称: ラスワンのお気持ち顧問
+- 運営: 株式会社ギブファースト（代表取締役 清水望）
+- 顧問料: 年100万円（相談し放題・効果が出るまで伴走）
+- 本番URL: https://lastone3939.github.io/omoikomi-advisor/
+
+## 強み・できること
+
+- AIコール開発（TELEMO など）
+- AIを使った営業リスト戦略（LasoneData など）
+- 営業伴走・実務実行
+- 関連資料: TELEMO、OpenClaw/Hermes、広告・採用提案など（#docs）
+
+## サイト内セクション（アンカー）
+
+| ID | 内容 |
+|----|------|
+| #hero | トップ・キャッチ |
+| #story | 経歴ストーリー |
+| #pillars | ポイント |
+| #services | できること |
+| #lens | カメラ体験 |
+| #photowall | 写真 |
+| #gallery | 現場 |
+| #docs | 営業資料PDF |
+| #pricing | 料金 |
+| #hub | 相談ハブ |
+
+## 連絡先
+
+- 公式LINE: https://lin.ee/Wod50Gz
+- 電話: 080-4098-7362
+- Email: nozomu.shimizu@zettai.co.jp
+- X: https://x.com/lasuone
+- Instagram: https://www.instagram.com/lastonemile39
+- YouTube: https://www.youtube.com/@GambleSoul
+
+## エージェントへの指示
+
+訪問者を自然言語で案内する。料金・相談希望には #pricing / #hub と LINE・電話を優先。
+投資・収益の保証はしない。サイト記載の事実に沿う。
